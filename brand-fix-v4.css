@@ -1,4 +1,4 @@
-/* Identidade visual TEM TUDO — correção 2026-07-30 */
+/* Identidade visual TEM TUDO — ajuste final de proporção */
 .footer-logo{
   display:block!important;
   width:210px!important;
@@ -16,20 +16,23 @@
   box-shadow:0 8px 24px rgba(0,0,0,.18)!important;
 }
 .hero-visual{
-  overflow:visible!important;
+  overflow:hidden!important;
+  align-items:flex-end!important;
+  justify-content:center!important;
+  padding-top:18px!important;
 }
 .hero-mascot,
 .hero-visual img[data-asset="1"]{
   display:block!important;
   width:auto!important;
-  height:560px!important;
-  max-width:92%!important;
-  max-height:none!important;
+  height:465px!important;
+  max-width:78%!important;
+  max-height:calc(100% - 18px)!important;
   object-fit:contain!important;
   object-position:center bottom!important;
   image-rendering:auto!important;
-  filter:drop-shadow(0 22px 24px rgba(17,17,17,.18))!important;
-  transform:scale(1.06)!important;
+  filter:drop-shadow(0 18px 20px rgba(17,17,17,.16))!important;
+  transform:none!important;
   transform-origin:center bottom!important;
   opacity:1!important;
 }
@@ -46,26 +49,27 @@
 }
 .chat-page-box img[data-asset="1"]{
   width:auto!important;
-  height:430px!important;
+  height:390px!important;
   max-width:100%!important;
   object-fit:contain!important;
   object-position:center bottom!important;
   filter:drop-shadow(0 18px 20px rgba(17,17,17,.16))!important;
 }
 @media(max-width:900px){
+  .hero-visual{padding-top:12px!important;}
   .hero-mascot,
   .hero-visual img[data-asset="1"]{
-    height:430px!important;
-    max-width:88%!important;
-    transform:none!important;
+    height:400px!important;
+    max-width:82%!important;
+    max-height:calc(100% - 12px)!important;
   }
   .footer-logo{width:190px!important;}
 }
 @media(max-width:560px){
   .hero-mascot,
   .hero-visual img[data-asset="1"]{
-    height:360px!important;
-    max-width:94%!important;
+    height:320px!important;
+    max-width:88%!important;
   }
-  .chat-page-box img[data-asset="1"]{height:320px!important;}
+  .chat-page-box img[data-asset="1"]{height:300px!important;}
 }
