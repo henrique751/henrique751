@@ -1,0 +1,30 @@
+name: Export transfer snapshot
+
+on:
+  push:
+    branches:
+      - transferencia-projeto-20260731
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact repository snapshot
+        uses: actions/checkout@v4
+      - name: Remove Git metadata only
+        run: rm -rf .git
+      - name: Upload complete project snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: projeto-tem-tudo-main-f3cbec79
+          path: .
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
