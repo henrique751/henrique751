@@ -1,0 +1,26 @@
+/* Assistente TEM TUDO v2 — cards, estados e acessibilidade */
+.chat-chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:thin}
+.chat-chips button{flex:0 0 auto;white-space:nowrap}
+.v2-products{display:grid;gap:10px;margin-top:12px}
+.v2-product{display:grid;gap:10px;padding:12px;border:1px solid #e5e5e5;border-radius:14px;background:#fff;color:#111}
+.v2-product strong{display:block;font-size:14px;line-height:1.35}
+.v2-product span,.v2-product small{display:block;margin-top:4px;color:#62676a;font-size:12px}
+.v2-product small{color:#16733b;font-weight:700}
+.v2-product-actions{display:flex;gap:8px}
+.v2-product-actions button,.v2-error-actions button{border:1px solid #d8d8d8;border-radius:10px;background:#fff;padding:8px 11px;font-weight:800;cursor:pointer}
+.v2-product-actions button:last-child{background:#e07015;border-color:#e07015;color:#fff}
+.v2-handoff{margin-top:12px;padding:14px;border-radius:14px;background:#111;color:#fff}
+.v2-handoff p{margin:7px 0 12px;color:#e6e6e6;font-size:13px;line-height:1.45}
+.v2-handoff a{display:inline-flex;padding:10px 13px;border-radius:10px;background:#e07015;color:#fff;text-decoration:none;font-weight:900}
+.v2-error-actions{display:flex;gap:8px;margin-top:12px}
+.v2-typing{display:flex!important;width:max-content;gap:5px;align-items:center;min-height:38px}
+.v2-typing span{width:7px;height:7px;border-radius:50%;background:#73797c;animation:ttTyping 1s infinite ease-in-out}
+.v2-typing span:nth-child(2){animation-delay:.12s}
+.v2-typing span:nth-child(3){animation-delay:.24s}
+@keyframes ttTyping{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-4px);opacity:1}}
+.chat-form textarea:focus-visible,.v2-product-actions button:focus-visible,.v2-handoff a:focus-visible,.chat-chips button:focus-visible{outline:3px solid rgba(224,112,21,.35);outline-offset:2px}
+@media(max-width:560px){
+  .v2-product-actions{flex-direction:column}
+  .v2-product-actions button{width:100%}
+  .chat-chips{padding-inline:10px}
+}
