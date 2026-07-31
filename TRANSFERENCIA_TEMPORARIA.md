@@ -1,0 +1,1 @@
+Arquivo temporário criado exclusivamente para acionar a exportação integral do projeto para o pacote de continuidade. Não pertence ao site publicado e será mantido apenas na branch de transferência.
