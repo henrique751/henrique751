@@ -1,0 +1,71 @@
+/* Identidade visual TEM TUDO — correção 2026-07-30 */
+.footer-logo{
+  display:block!important;
+  width:210px!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  filter:none!important;
+  -webkit-filter:none!important;
+  mix-blend-mode:normal!important;
+  opacity:1!important;
+  background:#fff!important;
+  padding:10px 12px!important;
+  border-radius:12px!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.18)!important;
+}
+.hero-visual{
+  overflow:visible!important;
+}
+.hero-mascot,
+.hero-visual img[data-asset="1"]{
+  display:block!important;
+  width:auto!important;
+  height:560px!important;
+  max-width:92%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  image-rendering:auto!important;
+  filter:drop-shadow(0 22px 24px rgba(17,17,17,.18))!important;
+  transform:scale(1.06)!important;
+  transform-origin:center bottom!important;
+  opacity:1!important;
+}
+.chat-id img[data-asset="1"]{
+  width:52px!important;
+  height:52px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  filter:none!important;
+  background:#fff!important;
+  border:2px solid rgba(224,112,21,.25)!important;
+  border-radius:14px!important;
+  padding:2px!important;
+}
+.chat-page-box img[data-asset="1"]{
+  width:auto!important;
+  height:430px!important;
+  max-width:100%!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  filter:drop-shadow(0 18px 20px rgba(17,17,17,.16))!important;
+}
+@media(max-width:900px){
+  .hero-mascot,
+  .hero-visual img[data-asset="1"]{
+    height:430px!important;
+    max-width:88%!important;
+    transform:none!important;
+  }
+  .footer-logo{width:190px!important;}
+}
+@media(max-width:560px){
+  .hero-mascot,
+  .hero-visual img[data-asset="1"]{
+    height:360px!important;
+    max-width:94%!important;
+  }
+  .chat-page-box img[data-asset="1"]{height:320px!important;}
+}
