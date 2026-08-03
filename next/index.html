@@ -1,20 +1,146 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#E07015">
-<meta name="description" content="TEM TUDO — catálogo, atendimento inteligente e orçamentos."><title>TEM TUDO — Atendimento Inteligente</title>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="./styles.css?v=20260803-0420">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#E07015" />
+  <meta name="description" content="TEM TUDO — catálogo, atendimento inteligente e orçamentos." />
+  <title>TEM TUDO — Atendimento Inteligente</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="./styles.css?v=20260803-2" />
+  <link rel="stylesheet" href="./customer-v2.css?v=20260803-2" />
 </head>
 <body>
-<header class="topbar"><a class="brand" href="#inicio" aria-label="TEM TUDO início"><span class="brand-mark">TT</span><span><strong>TEM TUDO</strong><small>Ferramentas para quem faz acontecer</small></span></a><button id="menuBtn" class="icon-btn mobile-only" aria-label="Abrir menu">☰</button><nav id="mainNav"><a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#orcamento">Orçamento</a><a href="#assistente">Assistente</a><a href="#admin">Painel</a></nav><button id="openQuote" class="quote-pill">Orçamento <span id="quoteCount">0</span></button></header>
-<main>
-<section id="inicio" class="hero page active"><div class="hero-copy"><span class="eyebrow">ATENDIMENTO TEM TUDO 3.0</span><h1>Encontre, compare e peça seu orçamento em poucos minutos.</h1><p>Pesquise por produto, referência, marca, serviço ou envie uma lista, PDF, planilha ou imagem. O sistema organiza tudo e prepara o atendimento para um vendedor.</p><div class="hero-actions"><a class="btn primary" href="#assistente">Conversar com o assistente</a><a class="btn secondary" href="#catalogo">Explorar catálogo</a></div><div class="trust-row"><span>✓ Catálogo oficial completo</span><span>✓ Busca por nome, SKU e aplicação</span><span>✓ Celular e desktop</span></div></div><div class="hero-card"><div class="hero-card-head"><span class="status-dot"></span> Atendimento disponível</div><div class="hero-chat-demo"><p class="bubble user">Preciso de uma furadeira para concreto.</p><p class="bubble bot">Posso ajudar. Informe a tensão ou a referência para eu localizar opções no catálogo.</p></div><button class="btn primary full" data-go="assistente">Começar atendimento</button></div></section>
-<section id="catalogo" class="page section"><div class="section-head"><div><span class="eyebrow">CATÁLOGO</span><h2>Catálogo oficial</h2><p>Base atual com 1.888 produtos das marcas principais, preparada para mais de 10.000 itens.</p></div><div class="search-box"><input id="catalogSearch" type="search" placeholder="Nome, marca, SKU, referência ou serviço..."><button id="clearSearch">×</button></div></div><div class="filter-row" id="brandFilters"></div><div id="catalogStats" class="catalog-stats">Carregando catálogo oficial...</div><div id="productGrid" class="product-grid"></div></section>
-<section id="orcamento" class="page section"><div class="section-head"><div><span class="eyebrow">ORÇAMENTO</span><h2>Revise os produtos</h2><p>Preços e disponibilidade devem ser confirmados por um vendedor.</p></div><button id="clearQuote" class="btn ghost">Limpar orçamento</button></div><div class="quote-layout"><div id="quoteItems" class="quote-list"></div><aside class="summary-card"><h3>Resumo</h3><div><span>Itens diferentes</span><strong id="summaryTypes">0</strong></div><div><span>Quantidade total</span><strong id="summaryQty">0</strong></div><div><span>Valores</span><strong>Consultar</strong></div><label>Nome do cliente<input id="customerName" placeholder="Como podemos chamar você?"></label><label>Observações<textarea id="quoteNotes" rows="4" placeholder="Tensão, medidas, prazo, entrega..."></textarea></label><button id="sendWhatsapp" class="btn whatsapp full">Enviar ao vendedor</button><button id="copyQuote" class="btn secondary full">Copiar lista</button></aside></div></section>
-<section id="assistente" class="page section assistant-page"><div class="assistant-shell"><aside class="assistant-side"><span class="eyebrow">ASSISTENTE TEM TUDO</span><h2>Atendimento orientado pelo catálogo</h2><p>O assistente consulta a base oficial e não inventa preço, estoque, garantia ou especificação.</p><div class="quick-actions"><button data-prompt="Preciso encontrar um produto para um serviço">Encontrar produto</button><button data-prompt="Quero buscar por SKU ou referência">Buscar referência</button><button data-prompt="Quero comparar produtos">Comparar opções</button><button data-prompt="Quero montar um orçamento">Montar orçamento</button></div><div class="upload-card"><h3>Analisar arquivo</h3><p>TXT, CSV, JSON, XLSX, PDF e imagem.</p><input id="fileInput" type="file" accept=".txt,.csv,.json,.xlsx,.xls,.pdf,image/*" multiple><label for="fileInput" class="btn secondary full">Selecionar arquivos</label><div id="fileStatus" class="file-status"></div></div></aside><div class="chat-card"><header><div><strong>Assistente TEM TUDO</strong><small><span class="status-dot"></span> Catálogo local ativo</small></div><button id="newChat" class="icon-btn">↻</button></header><div id="chatMessages" class="chat-messages" aria-live="polite"></div><form id="chatForm" class="chat-form"><textarea id="chatInput" rows="2" placeholder="Descreva o produto, serviço, referência ou cole uma lista..."></textarea><button class="send-btn">➤</button></form><small class="chat-hint">Enter envia · Shift + Enter cria nova linha</small></div></div><section id="importReview" class="review-panel hidden"><div class="section-head"><div><span class="eyebrow">REVISÃO DO ARQUIVO</span><h2>Itens identificados</h2></div><button id="closeReview" class="icon-btn">×</button></div><div id="reviewItems"></div><div class="review-actions"><button id="addReviewed" class="btn primary">Adicionar selecionados ao orçamento</button></div></section></section>
-<section id="admin" class="page section"><div class="section-head"><div><span class="eyebrow">PAINEL</span><h2>Visão operacional</h2><p>Produtos, orçamentos, arquivos e diagnóstico.</p></div></div><div class="metrics"><article><small>Produtos carregados</small><strong id="metricProducts">0</strong><span>catálogo oficial</span></article><article><small>Itens no orçamento</small><strong id="metricQuote">0</strong><span>sessão atual</span></article><article><small>Arquivos analisados</small><strong id="metricFiles">0</strong><span>neste dispositivo</span></article><article><small>Buscas sem correspondência</small><strong id="metricMisses">0</strong><span>para revisão</span></article></div><div class="admin-grid"><article class="panel"><h3>Importar catálogo</h3><p>A estrutura aceita lotes em JSON. Códigos são preservados como texto.</p><textarea id="catalogImport" rows="8" placeholder='[{"sku":"00123","nome":"Produto","marca":"Marca"}]'></textarea><button id="importCatalog" class="btn primary">Importar JSON</button><div id="catalogImportStatus"></div></article><article class="panel"><h3>Diagnóstico</h3><div id="diagnostics"></div><button id="runTests" class="btn secondary">Executar testes internos</button></article></div></section>
-</main>
-<aside id="quoteDrawer" class="drawer" aria-hidden="true"><div class="drawer-head"><div><strong>Seu orçamento</strong><small id="drawerSubtitle">0 itens</small></div><button id="closeQuote" class="icon-btn">×</button></div><div id="drawerItems" class="drawer-body"></div><div class="drawer-foot"><a href="#orcamento" class="btn primary full">Revisar orçamento</a></div></aside><div id="overlay" class="overlay"></div><div id="toast" class="toast" role="status"></div>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs" type="module"></script><script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-<script src="./app.js?v=20260803-0420"></script><script src="./catalog-fix.js?v=20260803-0420"></script>
-</body></html>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="TEM TUDO início">
+      <span class="brand-mark">TT</span>
+      <span><strong>TEM TUDO</strong><small>Ferramentas para quem faz acontecer</small></span>
+    </a>
+    <button id="menuBtn" class="icon-btn mobile-only" aria-label="Abrir menu">☰</button>
+    <nav id="mainNav">
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Produtos</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#assistente">Assistente</a>
+    </nav>
+    <button id="openQuote" class="quote-pill" aria-label="Abrir orçamento">Orçamento <span id="quoteCount">0</span></button>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero page active">
+      <div class="hero-copy">
+        <span class="eyebrow">ATENDIMENTO TEM TUDO</span>
+        <h1>Encontre, compare e peça seu orçamento em poucos minutos.</h1>
+        <p>Pesquise por produto, referência, marca ou serviço. Você também pode enviar uma lista, PDF, planilha ou imagem para organizar o pedido.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#assistente">Conversar com o assistente</a>
+          <a class="btn secondary" href="#catalogo">Explorar produtos</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ Busca por nome, código e aplicação</span>
+          <span>✓ Entende abreviações</span>
+          <span>✓ Funciona no celular e desktop</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-head"><span class="status-dot"></span> Atendimento disponível</div>
+        <div class="hero-chat-demo">
+          <p class="bubble user">Quero 2 brocas 8 mm para ferro.</p>
+          <p class="bubble bot">Entendi: 2 brocas de 8 mm para metal. Vou procurar as melhores opções do catálogo.</p>
+        </div>
+        <button class="btn primary full" data-go="assistente">Começar atendimento</button>
+      </div>
+    </section>
+
+    <section id="catalogo" class="page section">
+      <div class="section-head">
+        <div><span class="eyebrow">PRODUTOS</span><h2>Encontre o que precisa</h2><p>Pesquise pelo nome, código, referência, medida ou pelo serviço que deseja realizar.</p></div>
+        <div class="search-box"><input id="catalogSearch" type="search" placeholder="Ex.: soq 17 impacto, broca 8 mm ferro..." /><button id="clearSearch" aria-label="Limpar busca">×</button></div>
+      </div>
+      <div class="filter-row" id="brandFilters"></div>
+      <div id="catalogStats" class="catalog-stats"></div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section id="orcamento" class="page section">
+      <div class="section-head">
+        <div><span class="eyebrow">MEU ORÇAMENTO</span><h2>Revise seu pedido</h2><p>Confira as quantidades e envie a lista para um vendedor confirmar preço e disponibilidade.</p></div>
+        <button id="clearQuote" class="btn ghost">Limpar orçamento</button>
+      </div>
+      <div class="quote-layout">
+        <div id="quoteItems" class="quote-list"></div>
+        <aside class="summary-card">
+          <h3>Resumo</h3>
+          <div><span>Produtos diferentes</span><strong id="summaryTypes">0</strong></div>
+          <div><span>Quantidade total</span><strong id="summaryQty">0</strong></div>
+          <div><span>Preço e disponibilidade</span><strong>Confirmar</strong></div>
+          <label>Seu nome<input id="customerName" placeholder="Como podemos chamar você?" /></label>
+          <label>Observações<textarea id="quoteNotes" rows="4" placeholder="Tensão, medidas, entrega ou outras informações..."></textarea></label>
+          <button id="sendWhatsapp" class="btn whatsapp full">Enviar ao vendedor</button>
+          <button id="copyQuote" class="btn secondary full">Copiar lista</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="assistente" class="page section assistant-page">
+      <div class="assistant-shell">
+        <aside class="assistant-side">
+          <span class="eyebrow">ASSISTENTE TEM TUDO</span>
+          <h2>Explique do seu jeito</h2>
+          <p>Digite o produto, uma abreviação, uma medida, uma referência ou descreva o serviço. Quando faltar uma informação importante, o assistente perguntará antes de indicar.</p>
+          <div class="quick-actions">
+            <button data-prompt="Preciso encontrar um produto para um serviço">Encontrar produto</button>
+            <button data-prompt="Quero buscar por SKU ou referência">Buscar referência</button>
+            <button data-prompt="Quero comparar produtos">Comparar opções</button>
+            <button data-prompt="Quero montar um orçamento">Montar orçamento</button>
+          </div>
+          <div class="upload-card">
+            <h3>Enviar uma lista ou arquivo</h3>
+            <p>Texto, planilha, PDF ou imagem.</p>
+            <input id="fileInput" type="file" accept=".txt,.csv,.json,.xlsx,.xls,.pdf,image/*" multiple />
+            <label for="fileInput" class="btn secondary full">Selecionar arquivos</label>
+            <div id="fileStatus" class="file-status"></div>
+          </div>
+        </aside>
+        <div class="chat-card">
+          <header><div><strong>Assistente TEM TUDO</strong><small><span class="status-dot"></span> Pronto para ajudar</small></div><button id="newChat" class="icon-btn" aria-label="Nova conversa">↻</button></header>
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+          <form id="chatForm" class="chat-form">
+            <textarea id="chatInput" rows="2" placeholder="Ex.: 4 soq 17 longo impacto..."></textarea>
+            <button class="send-btn" aria-label="Enviar">➤</button>
+          </form>
+          <small class="chat-hint">Enter envia · Shift + Enter cria nova linha</small>
+        </div>
+      </div>
+      <section id="importReview" class="review-panel hidden">
+        <div class="section-head"><div><span class="eyebrow">REVISÃO</span><h2>Itens identificados</h2></div><button id="closeReview" class="icon-btn">×</button></div>
+        <div id="reviewItems"></div>
+        <div class="review-actions"><button id="addReviewed" class="btn primary">Adicionar selecionados ao orçamento</button></div>
+      </section>
+    </section>
+  </main>
+
+  <aside id="quoteDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head"><div><strong>Seu orçamento</strong><small id="drawerSubtitle">0 itens</small></div><button id="closeQuote" class="icon-btn">×</button></div>
+    <div id="drawerItems" class="drawer-body"></div>
+    <div class="drawer-foot"><a href="#orcamento" class="btn primary full">Revisar orçamento</a></div>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="../catalog-01.js?v=20260803-2"></script>
+  <script src="../catalog-02.js?v=20260803-2"></script>
+  <script src="../catalog-03.js?v=20260803-2"></script>
+  <script src="../catalog-04.js?v=20260803-2"></script>
+  <script src="../catalog-05.js?v=20260803-2"></script>
+  <script src="../catalog-06.js?v=20260803-2"></script>
+  <script src="../catalog-07.js?v=20260803-2"></script>
+  <script src="../catalog-08.js?v=20260803-2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="./catalog-loader.js?v=20260803-2"></script>
+  <script src="./app.js?v=20260803-2"></script>
+  <script src="./customer-v2.js?v=20260803-2"></script>
+</body>
+</html>
