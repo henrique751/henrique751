@@ -8,12 +8,13 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>TEM TUDO — Atendimento Inteligente</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=20260804-7" />
-  <link rel="stylesheet" href="./customer-v2.css?v=20260804-7" />
-  <link rel="stylesheet" href="./brand-v3.css?v=20260804-7" />
-  <script src="../brand-logo-1.js?v=20260804-7"></script><script src="../brand-logo-2.js?v=20260804-7"></script><script src="../brand-logo-3.js?v=20260804-7"></script>
-  <script src="../brand-mascot-1.js?v=20260804-7"></script><script src="../brand-mascot-2.js?v=20260804-7"></script><script src="../brand-mascot-3.js?v=20260804-7"></script><script src="../brand-mascot-4.js?v=20260804-7"></script>
-  <script src="../asset0.js?v=20260804-7"></script><script src="../asset1.js?v=20260804-7"></script>
+  <link rel="stylesheet" href="./styles.css?v=20260804-9" />
+  <link rel="stylesheet" href="./customer-v2.css?v=20260804-9" />
+  <link rel="stylesheet" href="./brand-v3.css?v=20260804-9" />
+  <link rel="stylesheet" href="./assistant-clean-v5.css?v=20260804-9" />
+  <script src="../brand-logo-1.js?v=20260804-9"></script><script src="../brand-logo-2.js?v=20260804-9"></script><script src="../brand-logo-3.js?v=20260804-9"></script>
+  <script src="../brand-mascot-1.js?v=20260804-9"></script><script src="../brand-mascot-2.js?v=20260804-9"></script><script src="../brand-mascot-3.js?v=20260804-9"></script><script src="../brand-mascot-4.js?v=20260804-9"></script>
+  <script src="../asset0.js?v=20260804-9"></script><script src="../asset1.js?v=20260804-9"></script>
 </head>
 <body>
   <header class="topbar">
@@ -29,8 +30,8 @@
     <section id="assistente" class="page section assistant-page"><div class="assistant-shell"><aside class="assistant-side"><img class="brand-watermark" data-tt-logo hidden alt=""><span class="eyebrow">ASSISTENTE TEM TUDO</span><h2>Explique do seu jeito</h2><p>Digite o produto, uma abreviação, uma medida, uma referência ou descreva o serviço.</p><div class="quick-actions"><button data-prompt="Preciso encontrar um produto para um serviço">Encontrar produto</button><button data-prompt="Quero buscar por SKU ou referência">Buscar referência</button><button data-prompt="Quero comparar produtos">Comparar opções</button><button data-prompt="Quero montar um orçamento">Montar orçamento</button></div><div class="upload-card"><h3>Enviar uma lista ou arquivo</h3><p>Texto, planilha, PDF ou imagem.</p><input id="fileInput" type="file" accept=".txt,.csv,.json,.xlsx,.xls,.pdf,image/*" multiple /><label for="fileInput" class="btn secondary full">Selecionar arquivos</label><div id="fileStatus" class="file-status"></div></div><img class="assistant-mascot" data-tt-mascot hidden alt="Mascote oficial TEM TUDO"></aside><div class="chat-card"><header><div><img class="chat-brand-icon" data-tt-logo hidden alt="Logo TEM TUDO"><strong>Assistente TEM TUDO</strong><small><span class="status-dot"></span> Pronto para ajudar</small></div><button id="newChat" class="icon-btn" aria-label="Nova conversa">↻</button></header><div id="chatMessages" class="chat-messages" aria-live="polite"></div><form id="chatForm" class="chat-form"><textarea id="chatInput" rows="2" placeholder="Ex.: 4 soq 17 longo impacto..."></textarea><button class="send-btn" aria-label="Enviar">➤</button></form><small class="chat-hint">Enter envia · Shift + Enter cria nova linha</small></div></div><section id="importReview" class="review-panel hidden"><div class="section-head"><div><span class="eyebrow">REVISÃO</span><h2>Itens identificados</h2></div><button id="closeReview" class="icon-btn">×</button></div><div id="reviewItems"></div><div class="review-actions"><button id="addReviewed" class="btn primary">Adicionar selecionados ao orçamento</button></div></section></section>
   </main>
   <aside id="quoteDrawer" class="drawer" aria-hidden="true"><div class="drawer-head"><div><strong>Seu orçamento</strong><small id="drawerSubtitle">0 itens</small></div><button id="closeQuote" class="icon-btn">×</button></div><div id="drawerItems" class="drawer-body"></div><div class="drawer-foot"><a href="#orcamento" class="btn primary full">Revisar orçamento</a></div></aside><div id="overlay" class="overlay"></div><div id="toast" class="toast" role="status"></div>
-  <script src="../catalog-01.js?v=20260804-7"></script><script src="../catalog-02.js?v=20260804-7"></script><script src="../catalog-03.js?v=20260804-7"></script><script src="../catalog-04.js?v=20260804-7"></script><script src="../catalog-05.js?v=20260804-7"></script><script src="../catalog-06.js?v=20260804-7"></script><script src="../catalog-07.js?v=20260804-7"></script><script src="../catalog-08.js?v=20260804-7"></script>
+  <script src="../catalog-01.js?v=20260804-9"></script><script src="../catalog-02.js?v=20260804-9"></script><script src="../catalog-03.js?v=20260804-9"></script><script src="../catalog-04.js?v=20260804-9"></script><script src="../catalog-05.js?v=20260804-9"></script><script src="../catalog-06.js?v=20260804-9"></script><script src="../catalog-07.js?v=20260804-9"></script><script src="../catalog-08.js?v=20260804-9"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs" type="module"></script><script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-  <script src="./catalog-loader.js?v=20260804-7"></script><script src="./app.js?v=20260804-7"></script><script src="./catalog-runtime-fix.js?v=20260804-7"></script><script src="./customer-v2.js?v=20260804-7"></script><script src="./brand-v3.js?v=20260804-7"></script>
+  <script src="./catalog-loader.js?v=20260804-9"></script><script src="./app.js?v=20260804-9"></script><script src="./catalog-runtime-fix.js?v=20260804-9"></script><script src="./customer-v2.js?v=20260804-9"></script><script src="./brand-v3.js?v=20260804-9"></script><script src="./quote-reader-v5.js?v=20260804-9"></script>
 </body>
 </html>
