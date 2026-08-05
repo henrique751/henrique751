@@ -1,0 +1,64 @@
+name: Exportar núcleo do Assistente TEM TUDO
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'catalog-*.js'
+      - 'next/*.js'
+      - 'tools/export-assistant-core.mjs'
+      - 'tools/build-assistant-sqlite.py'
+      - '.github/workflows/export-assistant-core.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PACKAGE_NAME: TEM_TUDO_ASSISTENTE_CORE_2026-08-05
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Gerar JSON, catálogo e código lógico
+        run: node tools/export-assistant-core.mjs
+
+      - name: Gerar banco SQLite
+        run: |
+          python3 tools/build-assistant-sqlite.py \
+            build/tem-tudo-assistant-core/TEM_TUDO_ASSISTENTE_CORE.json \
+            build/tem-tudo-assistant-core/TEM_TUDO_ASSISTENTE_CORE.sqlite
+
+      - name: Verificar pacote
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          base=Path('build/tem-tudo-assistant-core')
+          data=json.loads((base/'TEM_TUDO_ASSISTENTE_CORE.json').read_text(encoding='utf-8'))
+          db=sqlite3.connect(base/'TEM_TUDO_ASSISTENTE_CORE.sqlite')
+          count=db.execute('select count(*) from products').fetchone()[0]
+          assert count == len(data['products']) and count >= 1000, (count,len(data['products']))
+          assert data['manifest']['visual_layout_included'] is False
+          print({'products':count,'aliases':len(data['aliases']),'logic_files':len(data['source_manifests']['logic'])})
+          PY
+
+      - name: Criar arquivo único ZIP
+        run: |
+          cd build
+          zip -9 -r "${PACKAGE_NAME}.zip" tem-tudo-assistant-core
+          sha256sum "${PACKAGE_NAME}.zip" > "${PACKAGE_NAME}.zip.sha256"
+
+      - name: Publicar artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACKAGE_NAME }}
+          path: |
+            build/${{ env.PACKAGE_NAME }}.zip
+            build/${{ env.PACKAGE_NAME }}.zip.sha256
+          if-no-files-found: error
+          retention-days: 90
