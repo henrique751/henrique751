@@ -1,0 +1,7 @@
+name = "tem-tudo-gemini-proxy"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://henrique751.github.io"
+GEMINI_MODEL = "gemini-3.5-flash"
