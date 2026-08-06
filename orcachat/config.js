@@ -1,5 +1,5 @@
 window.ORCACHAT_CONFIG = {
-  geminiEndpoint: "",
+  geminiEndpoint: "https://tem-tudo-orcachat-api.henriquemiranda630.workers.dev/",
   appName: "TEM TUDO OrçaChat",
   catalogUpdatedAt: "13/07/2026",
   sellers: [
