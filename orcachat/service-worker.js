@@ -1,4 +1,4 @@
-const CACHE="tt-orcachat-v1-20260806b";
+const CACHE="tt-orcachat-v1-20260806c";
 const ASSETS=["./","index.html","styles.css","config.js","engine.js","main.js","manifest.webmanifest","assets-icon.svg","data/language.json","data/stock-chunk-01.js","data/stock-chunk-02.js","data/catalog-adapter.js"];
 self.addEventListener("install",event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
