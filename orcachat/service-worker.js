@@ -1,0 +1,11 @@
+const CACHE="tt-orcachat-v1-20260806a";
+const ASSETS=["./","index.html","styles.css","config.js","app.js","manifest.webmanifest","assets-icon.svg","data/language.json","data/stock-chunk-01.js","data/stock-chunk-02.js","data/catalog-adapter.js","app-chunk-01.js","app-chunk-02.js","app-chunk-03.js","app-chunk-04.js","app-chunk-05.js","app-chunk-06.js","app-chunk-07.js"];
+self.addEventListener("install",event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
+self.addEventListener("activate",event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener("fetch",event=>{
+  if(event.request.method!=="GET") return;
+  event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{
+    if(response.ok && new URL(event.request.url).origin===self.location.origin){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));}
+    return response;
+  }).catch(()=>event.request.mode==="navigate"?caches.match("index.html"):undefined)));
+});
