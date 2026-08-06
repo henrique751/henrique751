@@ -1,5 +1,5 @@
-const CACHE="tt-orcachat-v1-20260806a";
-const ASSETS=["./","index.html","styles.css","config.js","app.js","manifest.webmanifest","assets-icon.svg","data/language.json","data/stock-chunk-01.js","data/stock-chunk-02.js","data/catalog-adapter.js","app-chunk-01.js","app-chunk-02.js","app-chunk-03.js","app-chunk-04.js","app-chunk-05.js","app-chunk-06.js","app-chunk-07.js"];
+const CACHE="tt-orcachat-v1-20260806b";
+const ASSETS=["./","index.html","styles.css","config.js","engine.js","main.js","manifest.webmanifest","assets-icon.svg","data/language.json","data/stock-chunk-01.js","data/stock-chunk-02.js","data/catalog-adapter.js"];
 self.addEventListener("install",event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener("fetch",event=>{
