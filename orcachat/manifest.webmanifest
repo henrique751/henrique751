@@ -1,0 +1,9 @@
+{
+  "name":"TEM TUDO OrçaChat",
+  "short_name":"OrçaChat",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f4f7f6",
+  "theme_color":"#0b5a42",
+  "icons":[{"src":"assets-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
